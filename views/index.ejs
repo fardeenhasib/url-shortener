@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/urlShortner" method="POST">
+        <label for="originalURL"></label>
+        <input type="url" id="originalURL" name="originalURL">
+        <button>Shrink</button>
+        <table>
+            <thead>
+                <td>Long URL</td>
+                <td>Short URL</td>
+                <td>Clicks</td>
+            </thead>
+            <tbody>
+                <% datas.forEach((data)=> { %>
+                    <tr>
+                        <td><a href="<%= data.full %>">
+                                <%= data.full %>
+                            </a></td>
+                        <td><a href="<%= data.short %>">
+                                <%= data.short %>
+                            </a></td>
+                        <td>
+                            <%= data.clicks %>
+                        </td>
+                    </tr>
+                    <% }) %>
+
+            </tbody>
+        </table>
+    </form>
+</body>
+
+</html>
